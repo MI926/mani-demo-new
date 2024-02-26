@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Pi-Apps
+Comment=Raspberry Pi App Store for open source projects
+Exec=/home/mani/pi-apps/gui
+Icon=/home/mani/pi-apps/icons/logo.png
+Terminal=false
+StartupWMClass=Pi-Apps
+Type=Application
+Categories=Utility
+StartupNotify=true
