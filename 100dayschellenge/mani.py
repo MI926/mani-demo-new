@@ -28,7 +28,7 @@ print("mani the seeker \n the dohol is vaging")
  
 a = input("enter the number:- ", )
 b = input("do you want to enter new number ",)
-print(int(a) + int(b))'''
+print(int(a) + int(b))
 #by default inpute is a string
 a = input("enter the number:- ", )
 b = input("do you want to enter new number ",)
@@ -37,5 +37,4 @@ b = input("do you want to enter new number ",)
 print(10 * (a+b))
 #for real multiplication on inpute make inpute as int
 print(10 * int((a+b)))
-print(10 * int((int(a)+int(b))))
-pr
+print(10 * int((int(a)+int(b))))'''
