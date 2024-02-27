@@ -38,4 +38,4 @@ print(10 * (a+b))
 #for real multiplication on inpute make inpute as int
 print(10 * int((a+b)))
 print(10 * int((int(a)+int(b))))'''
-hjgvbllllllllllllllll
+9+78
