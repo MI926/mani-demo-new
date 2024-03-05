@@ -102,7 +102,7 @@ print(d.startswith("the", 1, 5))
 #print(d.startswith("the", 1, 5)) mean check the string starts with the or not from 1 to 5
 print(d.index("i"))
 #print(d.index("k")) mean find the index of i in the string if not found then give error
-print(d.index("k", 1, 5))
+#print(d.index("k", 1, 5))
 #print(d.index("k", 1, 5)) mean find the index of k in the string from 1 to 5
 print(d.isalnum())
 #print(d.isalnum()) mean check the string is alphanumeric or not if anyone of the character is not alphanumeric then give false
