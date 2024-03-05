@@ -53,7 +53,7 @@ print(c[:-3])
 print(c[-3:])
 #print(c[-3:]) mean print the character from -3(means from 5) to end
 print(c[-4:-3])
-#print(c[-4:-3]) mean print the character from -4(from 3) to -3(to 4)'''
+#print(c[-4:-3]) mean print the character from -4(from 3) to -3(to 4)
 #strings are immutable. no changes are done after creating string but may be moddified at calling the string.
 d = "Mani the seeker"
 print(d.upper())
@@ -117,5 +117,5 @@ print(d.isspace())
 print(d.istitle())
 #print(d.istitle()) mean check the string is title or not if anyone of the character is not title then give false
 print(d.title())
-#print(d.title()) mean capitalize the first letter of each word in the string
+#print(d.title()) mean capitalize the first letter of each word in the string '''
 
