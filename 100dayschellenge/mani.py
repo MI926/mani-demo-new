@@ -38,6 +38,7 @@ print(10 * (a+b))
 #for real multiplication on inpute make inpute as int
 print(10 * int((a+b)))
 print(10 * int((int(a)+int(b))))
+
 #string slicing
 c = "manithe"
 print(c[0])
@@ -117,5 +118,50 @@ print(d.isspace())
 print(d.istitle())
 #print(d.istitle()) mean check the string is title or not if anyone of the character is not title then give false
 print(d.title())
-#print(d.title()) mean capitalize the first letter of each word in the string '''
+#print(d.title()) mean capitalize the first letter of each word in the string 
+print(d.strip())
+#print(d.strip()) mean remove the spaces from both side of the string
+print(d.lstrip())
+#print(d.lstrip()) mean remove the spaces from left side of the string
+print( "_".join(d))
+#print( "_".join(d)) mean add underscore between each word in the string in list all  are tree'''
+#conditionals operator > , < , >=, <=, ==,!=
+#!= is not equal to
+#== is equal to
+#< is less than
+# > is greater than
+
+e = int(input("enter the age number:- "))
+if e >= 18:
+    print("you are eligible to drive vhecal")
+else:
+    print("you are not eligible to drive vhecal")
+if(e >= 18):
+    print("you are eligible to drive vhecal")
+else:
+    print("you are not eligible to drive vhecal")
+#elif means if the previous condition is false then check this condition and use for mulltiple condition.
+if(e >= 18):
+    print("you are eligible to drive vhecal")
+elif(e >= 16):
+    print("you are eligible to apply for learning permit")
+else:
+    print("you are not eligible to drive vhecal")
+#elif is used for multiple condition.
+# Nested if-else is used when you want to check multiple conditions and execute different code blocks based on each condition.
+
+# Here is an example of nested if-else:
+
+num = 15
+
+if num > 10:
+  print("Num is greater than 10")
+  
+  if num > 20:
+    print("Num is also greater than 20")
+  else:
+    print("Num is not greater than 20")
+  
+else:
+  print("Num is less than 10")
 
