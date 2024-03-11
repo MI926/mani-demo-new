@@ -124,7 +124,7 @@ print(d.strip())
 print(d.lstrip())
 #print(d.lstrip()) mean remove the spaces from left side of the string
 print( "_".join(d))
-#print( "_".join(d)) mean add underscore between each word in the string in list all  are tree'''
+#print( "_".join(d)) mean add underscore between each word in the string in list all  are tree
 #conditionals operator > , < , >=, <=, ==,!=
 #!= is not equal to
 #== is equal to
@@ -164,4 +164,125 @@ if num > 10:
   
 else:
   print("Num is less than 10")
+# match case statements in python
+# match is a new keyword in Python 3.10
+# match case statements allow you to check a value against several cases efficiently. 
+# It is like a switch statement in other languages.
+
+# Basic syntax:
+
+match expression:
+  case value1:
+    #code to execute if expression matches value1
+    ...
+  case value2:
+    #code to execute if expression matches value2 
+    ...
+  case _: 
+    #code to execute if no case matches
+
+# The expression is checked against the values for each case, and the code for the 
+# first matching case is executed. The _ case acts like default in a switch statement.
+
+# Some examples:
+
+num = int(input("enter the number:- "))
+
+match num:
+  case 1:
+    print("Number is 1")
+  case 5:
+    print("Number is 5")
+  case 10:
+    print("Number is 10")
+  case _:
+    print("Number is not 1, 5 or 10")
+    
+day = str(input("enter the day:- "))       
+
+match day:
+  case "Monday":
+    print("Today is Monday")
+  case "Tuesday":
+    print("Today is Tuesday")
+  case "Wednesday": 
+    print("Today is Wednesday")
+  case _:
+    print("Today is some other day")
+  
+
+# match case is a cleaner way to check multiple conditions compared to long if/else chains.
+#only one case matches the expression.
+match num:
+  case 1:
+    print("Number is 1")
+  case _ if  num!=5:
+    print("Number is not 5")
+  case _ if num!=8:
+    print("Number is not 8")
+#if statmennt satisfied the multiple condition then only first condition execute.
+#for loop can iterate through a sequence of iterable objects such as lists, tuples, strings, and dictionaries.
+num = int(input("enter the number:- "))
+
+# Loop through numbers from 0 to num 
+for i in range(0,num+1):
+  
+  # Print current number
+  print(i)  
+  
+  # Skip printing 0
+  if i == 0:
+    continue
+    
+  # Increment i for next iteration
+  i = i + 1
+for k in range (0,num+1, 3):
+  print(k)
+# While loop means to execute a set of statements as long as a condition is true. Deffrence between while loop and for loop is that while loop executes a set of statements as long as a condition is true and for loop executes a set of statements a fixed number of times.
+# While loop executes a set of statements as long as a condition is true.
+# When to use while loop?
+# which is faster while loop or for loop and when?
+# while loop is faster than for loop when the number of iterations is known.
+n = int(input("enter the number:- "))
+i = 0
+while i < n + 1:
+    print(i)
+    i = i + 1
+else:
+    print("i is no longer less than n")
+    print("i is now", i)
+    print("we are in the else block")
+#else block is executed when the loop terminates normally.
+#break and continue statements can alter the normal flow of a loop.
+#break statement terminates the loop and transfers execution to the statement immediately following the loop.
+#continue skip the curent block and goes back to the top of the next iteration.
+#Do while loop is similar to while loop but the loop runes at least once regadless of the condition.
+# I want to check whether the x > i + 1
+x = int(input("enter the number:- "))
+while True:
+    print(x)
+    i = 0
+    if x > i + 1:
+      break
+    i = i + 1
+'''
+#What is function?
+#A function is a block of code which only runs when it is called.
+#Functions help break our program into smaller and modular chunks.
+#why we use functions?
+#Functions help us to reuse code. and we dont have the longe code when ever we need to use it we just call thae functione .
+def addtwonumber(a, b):
+  add = a + b
+  print(add)
+
+a = int(input("enter the number:- "))
+b = int(input("enter the number:- "))
+addtwonumber(a,b)
+#what is pass in function?
+#pass mean run the code without giving error wher we just define the function but not write the code inside it.
+#pass is used when we want to write the code later.
+#def multiply(a, b):
+  # now its give error
+def multiply(a, b):
+  pass
 

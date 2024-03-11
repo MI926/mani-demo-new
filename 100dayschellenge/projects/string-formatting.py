@@ -1,4 +1,4 @@
-import textwrap
+
 y = (input("enter the number :- "))
 x = int(y)
 binary1 = bin(x)[2:]
@@ -10,4 +10,4 @@ for i in range(1, x + 1):
     binary = str(bin(i)[2:])
     decimal = str(i)
     print(hexadecimal.rjust(width), octal.rjust(width), binary.rjust(width), decimal.rjust(width))
-   
+    
