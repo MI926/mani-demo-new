@@ -41,6 +41,13 @@ print(10 * int((int(a)+int(b))))
 
 #string slicing
 c = "manithe"
+#how to write mullti line string
+d = """mani
+       seeker
+       the dohol is vaging"""
+#for blank line before print use:- print("\n anything")
+print("\nCreating a multiline String: ") 
+#In this example, we will define a string in Python and access its characters using positive and negative indexing. The 0th element will be the first character of the string whereas the -1th element is the last character of the string.
 print(c[0])
 #print(c[0]) mean print the first character of string 0 starting point on pythone
 print(c[1:3])
@@ -55,8 +62,68 @@ print(c[-3:])
 #print(c[-3:]) mean print the character from -3(means from 5) to end
 print(c[-4:-3])
 #print(c[-4:-3]) mean print the character from -4(from 3) to -3(to 4)
+#In this example, we will reverse a string by accessing the index. We did not specify the first two parts of the slice indicating that we are considering the whole string, from the start index to the last index.
+#Program to reverse a string 
+gfg = "geeksforgeeks"
+print(gfg[::-1])
+#string slicing
+list1 = list(String1) 
+list1[2] = 'p'
+String2 = ''.join(list1) 
+print("\nUpdating character at 2nd Index: ") 
+print(String2) 
+  
+#Updating Entire String if we just give two value for same variable then it only take last one value.
+#Deleting a character
+# Python Program to delete 
+# character of a String 
+
+String1 = "Hello, I'm a Geek"
+print("Initial String: ") 
+print(String1) 
+
+print("Deleting character at 2nd Index:") 
+del String1[2] 
+print(String1)
+#Deleting Entire String
+# Python Program to Delete 
+# entire String 
+
+String1 = "Hello, I'm a Geek"
+print("Initial String: ") 
+print(String1) 
+
+# Deleting a String 
+# with the use of del 
+del String1 
+print("\nDeleting entire String: ") 
+print(String1) 
+#Escape Sequencing in Python
+#While printing Strings with single and double quotes in it causes SyntaxError because String already contains Single and Double Quotes and hence cannot be printed with the use of either of these. Hence, to print such a String either Triple Quotes are used or Escape sequences are used to print Strings. 
+
+#Escape sequences start with a backslash and can be interpreted differently. If single quotes are used to represent a string, then all the single quotes present in the string must be escaped and the same is done for Double Quotes. 
+
+
 #strings are immutable. no changes are done after creating string but may be moddified at calling the string.
 d = "Mani the seeker"
+# Program to reverse a string 
+
+gfg = "geeksforgeeks"
+
+# Reverse the string using reversed and join function 
+gfg = "".join(reversed(gfg)) 
+
+print(gfg) 
+# Printing Paths with the 
+# use of Tab 
+String1 = "Hi\tGeeks"
+print("\nTab: ") 
+print(String1) 
+# Printing Paths with the 
+# use of New Line 
+String1 = "Python\nGeeks"
+print("\nNew Line: ") 
+print(String1) 
 print(d.upper())
 #print(d.upper()) mean print the string in upper case but it not change the original string
 print(d.lower())
@@ -125,6 +192,67 @@ print(d.lstrip())
 #print(d.lstrip()) mean remove the spaces from left side of the string
 print( "_".join(d))
 #print( "_".join(d)) mean add underscore between each word in the string in list all  are tree
+#Formatting of Strings
+#Strings in Python can be formatted with the use of format() method which is a very versatile and powerful tool for formatting Strings. Format method in String contains curly braces {} as placeholders which can hold arguments according to position or keyword to specify the order.
+# Python Program for 
+# Formatting of Strings 
+
+# Default order 
+String1 = "{} {} {}".format('Geeks', 'For', 'Life') 
+print("Print String in default order: ") 
+print(String1) 
+
+# Positional Formatting 
+String1 = "{1} {0} {2}".format('Geeks', 'For', 'Life') 
+print("\nPrint String in Positional order: ") 
+print(String1) 
+
+# Keyword Formatting 
+String1 = "{l} {f} {g}".format(g='Geeks', f='For', l='Life') 
+print("\nPrint String in order of Keywords: ") 
+print(String1) 
+#Integers such as Binary, hexadecimal, etc., and floats can be rounded or displayed in the exponent form with the use of format specifiers. 
+# Formatting of Integers 
+String1 = "{0:b}".format(16) 
+print("\nBinary representation of 16 is ") 
+print(String1) 
+
+# Formatting of Floats 
+String1 = "{0:e}".format(165.6458) 
+print("\nExponent representation of 165.6458 is ") 
+print(String1) 
+
+# Rounding off Integers 
+String1 = "{0:.2f}".format(1/6) 
+print("\none-sixth is : ") 
+print(String1) 
+#A string can be left, right, or center aligned with the use of format specifiers, separated by a colon(:). The (<) indicates that the string should be aligned to the left, (>) indicates that the string should be aligned to the right and (^) indicates that the string should be aligned to the center. We can also specify the length in which it should be aligned. For example, (<10) means that the string should be aligned to the left within a field of width of 10 characters.
+# String alignment 
+String1 = "|{:<10}|{:^10}|{:>10}|".format('Geeks', 
+										'for', 
+										'Geeks') 
+print("\nLeft, center and right alignment with Formatting: ") 
+print(String1) 
+
+# To demonstrate aligning of spaces 
+String1 = "\n{0:^16} was founded in {1:<4}!".format("GeeksforGeeks", 
+													2009) 
+print(String1) 
+#Left, center and right alignment with Formatting: 
+#|Geeks     |   for    |     Geeks|
+# GeeksforGeeks   was founded in 2009 !
+#Old-style formatting was done without the use of the format method by using the % operator 
+# Python Program for 
+# Old Style Formatting 
+# of Integers 
+
+Integer1 = 12.3456789
+print("Formatting in 3.2f format: ") 
+print('The value of Integer1 is %3.2f' % Integer1) 
+print("\nFormatting in 3.4f format: ") 
+print('The value of Integer1 is %3.4f' % Integer1) 
+
+
 #conditionals operator > , < , >=, <=, ==,!=
 #!= is not equal to
 #== is equal to
@@ -265,7 +393,6 @@ while True:
     if x > i + 1:
       break
     i = i + 1
-'''
 #What is function?
 #A function is a block of code which only runs when it is called.
 #Functions help break our program into smaller and modular chunks.
@@ -279,10 +406,67 @@ a = int(input("enter the number:- "))
 b = int(input("enter the number:- "))
 addtwonumber(a,b)
 #what is pass in function?
-#pass mean run the code without giving error wher we just define the function but not write the code inside it.
+#pass mean run the code without giving an error where we just define the function but not write the code inside it.
 #pass is used when we want to write the code later.
 #def multiply(a, b):
-  # now its give error
+  # now it gives an error 
 def multiply(a, b):
-  pass
+  pass1v    b
+# now no error
+# the belo is the part of string
+# Printing hello in octal 
+String1 = "112\165\154\154\167"
+print("\nPrinting in Octal with the use of Escape Sequences: ") 
+print(String1) 
+#by using / we say in octal or HEX-like things letters and numbers.
+#if we have to use  
 
+# Using raw String to       
+# ignore Escape Sequences 
+String1 = r"This is \110\145\154\154\157"
+print("\nPrinting Raw String in Octal Format: ") 
+print(String1) 
+
+# Printing Geeks in HEX 
+String1 = "This is \x47\x65\x65\x6b\x73 in \x48\x45\x58"
+print("\nPrinting in HEX with the use of Escape Sequences: ") 
+print(String1) 
+
+# Using raw String to 
+# ignore Escape Sequences 
+String1 = r"This is \x47\x65\x65\x6b\x73 in \x48\x45\x58"
+print("\nPrinting Raw String in HEX Format: ") 
+print(String1) 
+# Printing Geeks in Binary 
+
+'''
+#list is a collection of items in a particular order.
+#list is a mutable datatype.
+#list is a sequence of items.
+x = int(input("enter the number:- "))
+list = ["apple", "banana", "cherry"]
+print(list[x])
+
+#WHAT IS mean of mutable and immutable?
+#mutable means it can be changed.
+
+#it may consiste of different data types.
+list1 = ["apple", "banana", "cherry", 1, 5.5, 7, True]
+x1 = int(input("enter the number:- "))
+print(list1[x1])
+#to find if element is present in list we use in operator.
+if "apple" in list1:
+    print("Yes, 'apple' is in the fruits list")
+#to find if element is not present in list we use not in operator.
+if "mango" not in list1:
+    print("No, 'mango' is not in the fruits list")
+#must be of same data type for example belove if we "7" insted of 7 it will give not in list1.
+if "7" in list1:
+    print("Yes, '7' is in the  list1")
+else:
+    print("No, '7' is not in the  list1")
+#same thing also aplies for strings.
+if "7" in "apple":
+    print("Yes, '7' is in the  'apple'")
+else:
+    print("No, '7' is not in the  'apple'")
