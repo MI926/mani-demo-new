@@ -1,6 +1,3 @@
-
-
-
 def changei(b, a):
     match a :
         case 'octal':

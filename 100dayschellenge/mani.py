@@ -411,62 +411,359 @@ addtwonumber(a,b)
 #def multiply(a, b):
   # now it gives an error 
 def multiply(a, b):
-  pass1v    b
+  pass
 # now no error
 # the belo is the part of string
-# Printing hello in octal 
-String1 = "112\165\154\154\167"
-print("\nPrinting in Octal with the use of Escape Sequences: ") 
-print(String1) 
-#by using / we say in octal or HEX-like things letters and numbers.
-#if we have to use  
-
-# Using raw String to       
-# ignore Escape Sequences 
-String1 = r"This is \110\145\154\154\157"
-print("\nPrinting Raw String in Octal Format: ") 
-print(String1) 
-
-# Printing Geeks in HEX 
-String1 = "This is \x47\x65\x65\x6b\x73 in \x48\x45\x58"
-print("\nPrinting in HEX with the use of Escape Sequences: ") 
-print(String1) 
-
-# Using raw String to 
-# ignore Escape Sequences 
-String1 = r"This is \x47\x65\x65\x6b\x73 in \x48\x45\x58"
-print("\nPrinting Raw String in HEX Format: ") 
-print(String1) 
-# Printing Geeks in Binary 
-
-'''
-#list is a collection of items in a particular order.
-#list is a mutable datatype.
-#list is a sequence of items.
+def multiply(a = 5, b = 6):
+    print(a + b)
+    print(a , "a is")
+    print(b , "b is")
+c = int(input("Enter thr number"))
+multiply(a = c)
+#we just take defult value of the b and a assign the value of c
+# defult case me 1st value is for a and second value is for b 
+#but we may define 1st value as b and second vslue as a
+#ex
+multiply(b = 15, a = 6)
+#what is required array in function?
+#in abve both are not required arrgument
+def mulll(a, b = 8):
+    print(a * b)
 x = int(input("enter the number:- "))
-list = ["apple", "banana", "cherry"]
-print(list[x])
+mulll(b = x)
+#above case give error as a is not given and it is required
+#defult arrgument must be at last of the non define argument 
 
-#WHAT IS mean of mutable and immutable?
-#mutable means it can be changed.
+#variable length argument in function
 
-#it may consiste of different data types.
-list1 = ["apple", "banana", "cherry", 1, 5.5, 7, True]
-x1 = int(input("enter the number:- "))
-print(list1[x1])
-#to find if element is present in list we use in operator.
-if "apple" in list1:
-    print("Yes, 'apple' is in the fruits list")
-#to find if element is not present in list we use not in operator.
-if "mango" not in list1:
-    print("No, 'mango' is not in the fruits list")
-#must be of same data type for example belove if we "7" insted of 7 it will give not in list1.
-if "7" in list1:
-    print("Yes, '7' is in the  list1")
+#variable as tupule
+def mulltiply(*args):
+    b = 0
+    for x in args:
+        if b  == 0 :
+          b = x
+        else:
+           
+         b = b * x
+    print(b)
+    return b
+c = 0
+while True:
+   x = int(input("enter the number:- "))
+   if x == 1:
+      multiply(x)
+      break
+   if c == 0:
+      c = x
+      continue
+   
+   mulltiply(x, c)
+   c = mulltiply(x, c)
+
+
+#list for mulltiple element
+#list is a collection which is ordered and changeable. Allows duplicate members.
+#the each element or item of a list is identified by an index. same as string
+l = [1,2,3,4,5,6,7,8,9]
+print(l)
+print(l[0])
+#adding element on lost.
+#list may contain different data types.
+l.append(13)
+print(l)
+# For finding an element in list must use same data type if we take number as string in if statement then it give error because the l contine integer
+
+
+#jump index
+#if we want to jump from a to c and skip b
+print(l[0:3:2])
+#so it 1st evalute 0 to 3 and then skip every second element from the privious one.
+#list comprehension
+#sort in list.  accending order 
+l.sort()
+print(l)
+#and in decending order
+l.sort(reverse = True)
+print(l)
+#reverse in the list.
+l = [1,2,3,4,5,6,7,8,9]
+l.reverse()
+print(l) 
+#for finding index of the element in list fist occurance.
+print(l.index(5))
+#for finding how many times comes an element in list.
+print(l.count(5))
+#why to use copy mot this n = l
+#because then if we change the l then n will automatically changes
+n = l
+#inserting element at particular place(index)
+l.insert(2, 26)
+print(l, "is the value of l")
+print(n, "is the value of n")
+#if we use copy then it will not change the n
+l = [1,2,3,4,5,6,7,8,9]
+n = l.copy()
+l.append(45)
+#extend mean add at the last
+l.extend([10,11,12])
+print(l, "is the value of l")
+print(n, "is the value of n")
+#what is different between append and extend
+#append treat the whole list as one element if we append x in l then whole element of x are treted as an single elment list in list
+
+x = [1, 44, 12]
+l.append(x)
+print(l)
+#what is tupple.
+#it's the like list but not changeable
+l = (1, 2, 3, 4)
+print(l)
+#l.append(12)
+#it give error as tupple is not changeable
+#if we want to change the tupple then we have to create new tupple
+#l = (1)
+print(type(l))
+#in above it say the type is int not tuple so for tuple must use one comma after the num
+#l = (1,)
+print(type(l))
+#now the type is tuple
+#all indexing and other thing are same in tuple like list
+#slcing of the tuple is possible 
+print(l[1:])
+#tuple also contain diffrent types like int, string, float etc.
+#tupple is faster than list
+#the below is the way to change tupule
+#st -1 make an temporary list
+#st -2 make changes in it
+#st -3 convet it into tuple and must give same variable as previous tuple
+l = (1, 5, 7, 6, 12)
+print(l)
+x = list(l)
+x[1] = 10
+x.extend((16, 18, 3, 13))
+l = tuple(x)
+print(l)
+#tuple methods are same as the list
+#What is the docstring?
+#it may take as outpute. for write the def of the funtion
+#it is just beloe the funtion.
+def mul(a, b):
+    # (3 commas) this just an example of docstring and just use in funtion to give it's defination
+#    here thew first number is mulltiply by other (3 comass)
+#    pass
+a = 55
+b = 77
+mul(a, b)
+print(mul.__doc__)
+#above is just print the docstring of the function
+#the possition is very important
+#what is pep
+#what is recurtion
+
+
+def factorial(a):
+    if (a == 0 or a == 1):
+        return a
+    else:
+        return a * factorial(a-1)
+a = int(input("enterthe number "))
+print(factorial(a))
+#must used the return don't print
+#set its just don't store the repeted value and it is always give unorder iteam
+#its unreplaceabl
+#it may contain diffrent data type
+#it cant be exces by index number
+empty_set = set()  # Empty set is not like {} as it gives a dictionary
+print(type(empty_set))
+#if this {}
+empty_set = {}
+print(type(empty_set)) # this is give dictionary
+empty_set = {"mani", "gupta", "gyan", "soham"}
+#empty_set[1] = "mani" #it give error
+#empty_set.append("mani") #it give error
+# we may add element in the set.
+empty_set.add("ifgxsfg")
+print(empty_set)
+#mathamatical oprations on set
+s1 = {1, 2, 5}
+s2 = {12, 5, 3, 2}
+print(s1.difference(s2))
+print(s1.intersection(s2))
+print(s1.union(s2))
+print(s1.symmetric_difference(s2))
+print(s1.issuperset(s2))
+print(s2.issuperset(s1))
+print(s1.issubset(s2))
+print(s1.isdisjoint(s2))
+# The update() method updates the set by adding elements from another set.
+
+s1 = {1, 2, 5}
+s2 = {12, 5, 3, 2}
+
+s1.update(s2)
+print(s1)  # {1, 2, 3, 5, 12}
+
+# It can also add elements from other iterables like lists:
+
+s1 = {1, 2, 5}
+s2 = [3, 4, 6]
+
+s1.update(s2)
+print(s1)  # {1, 2, 3, 4, 5, 6}
+s1.intersection_update(s2)
+print(s1)
+print(s2)
+#above s1 update by intersection of s1 and s2
+#remove an item using remove() function
+s1.remove(3)
+print(s1)
+#diffrencs between remove and discard 
+#remove raise error if element not present in set and discard dont raise error
+
+s1.discard("mani")
+print(s1)
+#what is pop
+#pop is used to remove the last element of the set but it is random
+s2 = {1, 2, 5, 3, 12, 123}
+b = s2.pop()
+print(b)
+#what is del
+#del s1
+#print(s1) #give an error of s1 not exist
+#clear just remove all elemnt in the set
+s1.clear()
+print(s1)
+#if value exist all are same as the list
+#What is a dictionary? this is orderd
+s = {
+    1: "mani",
+    2: "kumar",
+    3: "suresh",
+    4: "rohan",
+    5: "raj",
+    6: "ram",
+    7: "shyam",
+    8: "mohan"
+}
+print(s[2])
+print(s)
+#there are two way to exise dictionary
+#by s[anything] s.get(anything)
+print(s.get(9))# give none
+#print(s[9])#this give error that 9 doesnt exist
+#for printing all key
+print(s.keys())
+#for all key
+print(s.values())
+#for all values
+
+
+
+for i in s.keys(): #to exces key
+  print(s[i]) #to exces the value
+  print(i)#to excess the key
+  print(f"the value is {s[i]} and the key is {i}")
+from hashlib import sha384
+
+
+s1 = {1: "mani", 2: "rohan", 3: "krisna", 4: "raj", 5: "ram", 6: "shyam"}
+s3 = {7: "mohan", 8: "sohan", 9: "roshan", 10: "suresh"}
+print(s1)
+print(s3)
+s1.update(s3)
+print(s1, "its after update") #updates the s1 and add all elemant of s3 to s1
+s3.clear() #clear the all element of the discnary and make it empty discnary
+print(s3)
+#pop
+s1.pop(1)
+print(s1)#remove the value of 1  from s1 coresponding to key 1
+s1.popitem()#remove the last value pair here its 10 : suresh
+
+print(s1)
+#del s1 delet whole discnary
+del s1[3] #remove the value pair corresponding to key 3
+print(s1)
+#must know that data type is important on calling an element from list
+#here we call a string so it gives error because the element is not there   
+#how to ue else with for loop
+for i in s1:
+    print(i)
 else:
-    print("No, '7' is not in the  list1")
-#same thing also aplies for strings.
-if "7" in "apple":
-    print("Yes, '7' is in the  'apple'")
+    print(5)   
+#it just exicute after for loop but if we break the for loop then else not  also same with while loop
+for i in s1:
+  if i == 4:
+    break
+  print(i)
 else:
-    print("No, '7' is not in the  'apple'")
+  print(35)    
+#erore handling
+#it important because if error accure the projgram not run after the error but if want that the program run even after the error
+a = input("entere the number ")
+# for i in range(1, 11):
+#  print(f"{a} x {i} = {int(a)*i}")
+# if enter an string in a then it just give error of invalid literal and program stops
+# print("some important code id here")
+# the above code dont run after the error
+# to run the code after error we must have to use error handling
+try:
+    for i in range(1, 11):
+        print(f"{a} x {i} = {int(a)*i}")
+except Exception as e:  # we also use except:
+    # print("error occure")
+    print(e)
+print("it is important code")
+# now there is no error
+# try meabs try to run if it dont give errorso run it without any hessitstion
+# if erroe occour then run the code of exception and stor the erroe in e and print e
+# dont block programe to run futher
+# there are multiple type of error in python
+#for handling spacific type of error
+try:
+    for i in range(1, 11):
+        print(f"{a} x {i} = {int(a)*i}")
+except SyntaxError:
+    print("Sy")
+except TypeError:
+    print("type error")
+except ValueError:
+    print("Could not convert data to an integer.")
+#what is final
+#it must run irespective of the erroe is occure or not
+#it always excicuted
+#how it's special the iska kam to try except se bhi ho raha hai
+#it mostly use in funtion where we retun some thing or break the loop etc.
+#the code under the finaly must be exicuted
+def mull(a, b):
+    try:
+        return a * b
+    except Exception as e:
+      print(e)
+      return e
+    print("mani gupta is the king")
+
+print(mull(14, 15))
+#above the mani gupta is the king not excicuted
+#if we want to excute the print statemnet under the finaly then we must use finally
+def mull(a, b):
+    try:
+        return a * b
+    except Exception as e:
+        print(e)
+        return e
+    finally:
+        print("mani gupta is the king")
+print(mull(16, 29))
+#here the above code give mani gupta is the 
+#how to rase the error in the programe
+'''
+a = input("enter the number between 5 to 9")
+if isinstance(a, int):
+    if int(a)<5 or int(a)>5:
+        raise ValueError("the number is not in between 5 to 9")
+if a == "quit":
+  pass
+else:
+  raise ValueError("the number is not entered")
+
+#there is many ways to raise error in many diffrent cases
