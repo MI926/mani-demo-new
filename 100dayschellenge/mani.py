@@ -756,7 +756,6 @@ def mull(a, b):
 print(mull(16, 29))
 #here the above code give mani gupta is the 
 #how to rase the error in the programe
-'''
 a = input("enter the number between 5 to 9")
 if isinstance(a, int):
     if int(a)<5 or int(a)>5:
@@ -768,4 +767,69 @@ else:
 
 #there is many ways to raise error in many diffrent cases
 #JUSWTTEST FOR GIT AGAIN
+#short hand if else
+a = int(input("enter the num one"))
+b = int(input("enter the num two"))
+print(a) if a > b else print(b)
+#at last must write else if not then it will give error and not excicuted
+print(a) if a > b else print(b) if b == a else ""
+#may use like that
+c = 9 if a>b else 0 # give zero if a<b or a == b. and give 9 if a>b
+print(c)
+#what is the enumerate
+#enumerate is just remove the use of index and use the value of the element 
+a = [1, 12, 15, 4, 5, 6]
+for index, i in enumerate(a):#here index give the value of how mnany times this loop runes before elemnt i index must be before i 
+    print(index, i)
+#index ki value defult zero se suru hoga but if i want to strt it from any specific value then.
+for index, i in enumerate(a, start=1):
+    print(index, i)
+#how to make virtual envirment
+#ye sirf ek alag envirment bana deta hai jiska main python se koi lenea dena nbahi hai
+#its just make seprate envirement jiskop koi main python ke module install karna padta hai
+# run this comand in the folder where you want to make virtual enverment:    python -m venv name
+#to activate the virtual envirment         source venv/bin/activate
+ #then just run regular commands to install modules/packages 
+ #after that if you want to stop the virtual env run deactivatr
+#there is file called requirment.txt its the list of packages whih used in that VE
+#if some one wantr to copy whlo project of virtual env then this file help to install that same packages
+# for making use the comand pip freeze > requirements.txt
+#for them they just run    pip install -r requirements.txt
 
+#import actually mean
+#just it just like you use the whole code without writing it
+import math
+#we juste use all funtions of maths by math.funtion()
+import math as m
+#we use math as alike m.funtion()
+from math import pi
+#now we just copy the whole code of pi funtion from math
+#so we use it like a defult funtion
+print(pi)
+from math import*
+print(pi)
+#now it just copy the whole code all funtion so we use it funtions defult way
+#but dont use import* every time if module is big then it may cause trubool
+#kisi MODULE kE KON KONSE funtions hai pata karne ke liye use dir
+print(dir(math))
+print(math.nan, type(math.nan))
+print(isqrt(25))
+#abve are the examples of hoe to use the funtions
+# what is if __name__ == "__main__"
+#it just used to check the name of the file is main or not
+#it prevent the file from running if it is not main
+#it is used to make the file as a module
+#jab ham kisi module ko import karte hai to module ke sare funtions run hote hai hai.
+#but hame to khali funtions ko tab run kaerna hai jab ham use call kare so it just stop funtion to run
+# example let creat module name mani.py
+import manie
+a = "mani gupta king"
+manie.name1() #see here mani gupta is printing 2 times for that we use if __name__ == "__main__"
+#so now we update the code of manie
+#now it just print onces
+#ye batata hai ki isko kaha se call kar rahe hai same file se ya kisi aur file se as module leke
+#here it is not give main it gives manie
+# what is os module
+#it just use to use some functions of copy file pastcut edit, delet, creater, rename etc
+'''
+import os
