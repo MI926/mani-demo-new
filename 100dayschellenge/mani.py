@@ -1212,7 +1212,6 @@ a = static()#this is also valid way to exise
 a.mull(25, 45)
 
 
-'''
 #instance vs class variable
 class mania():
   
@@ -1236,5 +1235,85 @@ c = mania("python")#above we just leave a as a take c
 #we may define it as self so if we make changes in c then it may change by self
 c.add(243, 3487)
 #as we can't use anything from class so no need of self
-c.add
+#class vs instence variable
+class mania():
+  company = "apple"
+  def __init__(self, prog) :
+     self.programe = prog
+  def add(a, b, c):
+    print(c + b)
+  def show(self):
+    print(f"her her company is {self.company} and languge is {self.programe}")
+a = mania("python")
+a.company = "amazon"
+a.show()
+#we may define inside it it woks same in this case but if i want to know count of the
+#data enter then its not usefull in instence
+#it also helphfull when you want to a change whole variable at onc for all then this works leke mania.company = "anything"
+class mania():
+    employ = 0
+    def __init__(self, prog):
+        self.programe = prog
+        mania.employ += 1 #this is the syntext
+    def add(self, b, c):
+        print(c + b)
+    def show(self):
+        print(f"her her company is {self.company} and languge is {self.programe} and number is {mania.employ}")
+
+a = mania("python")
+a.company = "amazon"
+a.show()
+b = mania("python")
+b.company = "amazon"
+b.show()
+mania.employ = 0
+#class method to change the company name by funtion for all the cases
+class mania():
+    company = "apple"
+    def __init__(self, prog):
+        self.programe = prog
+    def add(self, b, c):
+        print(c + b)
+    def show(self):
+        print(f"her her company is {self.company} and languge is {self.programe} and number is {mania.company}")
+    @classmethod
+    def changecompany(cls, new_company):
+      cls.company = new_company
+a = mania("python")
+#a.company = "amazon"
+a.show()
+b = mania("python")
+#b.company = "amazon"
+b.show()
+mania.changecompany("amazon")
+b.show()
+a.show()
+'''
+#string slicing in class for make complex data simple
+#like we have given name and all like mani-120000-SDE!
+#then we can't able to use it directly and if we split it
+#for every people then it mees the code
+class mania():
+    company = "apple"
+    def __init__(self, prog, name, salary):
+        self.programe = prog
+        self.name = name
+        self.salary = salary
+    def add(self, b, c):
+        print(c + b)
+    def show(self):
+        print(f"her her company is {self.company} and languge is {self.programe} and number is {mania.company} salary is {self.salary}, name is {self.name}")
+    @classmethod
+    def unformatetoform(cls, input_str):
+        return cls(input_str.split("-")[0], input_str.split("-")[1], input_str.split("-")[2])
+    @classmethod
+    def changecompany(cls, new_company):
+        cls.company = new_company
+a = mania.unformatetoform("mani-120000-SDE")
+a.show()
+b = mania.unformatetoform("jani-120000-SDE")
+b.show()
+mania.changecompany("amazon")
+b.show()
+a.show()
 
