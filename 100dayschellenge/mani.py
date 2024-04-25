@@ -831,5 +831,409 @@ manie.name1() #see here mani gupta is printing 2 times for that we use if __name
 #here it is not give main it gives manie
 # what is os module
 #it just use to use some functions of copy file pastcut edit, delet, creater, rename etc
-'''
 import os
+if (not os.path.exists("osmodule test")):
+  os.mkdir("osmodule test")
+for i in range(0, 50):
+  os.mkdir(f"osmodule test/folder{i + 1}")
+ #os.mkdir use for making folder and the name is inside os.module("name")
+ #os.rename use for renaming the folder
+#for i in range(0, 50): #thsi use to make the files with name folder1, folder2, folder3, folder4, folder5....etc
+for i in range(0, 50):
+  os.rename((f"osmodule test/folder{i + 1}"), (f"osmodule test/folder{i + 1}.py"))
+#os.remove use for deleting the folder
+#for i in range(0, 50):
+  #os.remove(f"osmodule test/folder{i + 1}.py")
+#os.rmdir use for deleting the folder
+#what is diffrent between the rmdir and remove
+#the main difference is that os.remove() is used to delete files, while os.rmdir() is used to remove empty directories.
+
+for i in range(0, 50):
+  os.rmdir(f"osmodule test/folder{i + 1}.py")
+#os.chdir use for changing the directory
+os.chdir("osmodule test")
+#os.getcwd use for getting the current directory
+print(os.getcwd())
+#os.listdir use for getting the list of files in the directory
+print(os.listdir())
+#os.path.exists use for checking the file or folder is exists or not
+print(os.path.exists("osmodule test"))
+#os.path.isfile use for checking the file is file or not
+print(os.path.isfile("osmodule test"))
+#os.path.isdir use for checking the file is folder or not
+print(os.path.isdir("osmodule test"))
+#os.path.join use for joining the path
+print(os.path.join("osmodule test", "folder1"))
+#os.path.basename use for getting the name of the file
+print(os.path.basename("osmodule test/folder1"))
+#os.path.dirname use for getting the name of the folder
+print(os.path.dirname("osmodule test/folder1"))
+#os.path.getsize use for getting the size of the file
+print(os.path.getsize("osmodule test/folder1.py"))
+#global vs local
+a = 5
+def funtion():
+  a = 10 
+  print(a)#it prints local a a = 10
+  #so 
+  
+print(a)#it prints global a a = 5
+print(funtion())#it prints local a a = 10
+#for changing global a in funtion we use global
+def funtion():
+  global a
+  a = 10
+  print(a)
+print(funtion())#changing the global a in funtion
+#file handling
+#open use for opening the file
+#w use for writing the file
+#r use for reading the file
+#a use for appending the file
+#x use for creating the file
+#b use for opening the file in binary mode
+#whatever is used in open function is used for opening the file
+a = open('100dayschellenge/projects/filehandling/file.txt', 'r', encoding='utf-8')
+print(a)
+text = a.read()
+print(text)
+a.close()
+#the above shows how to use the open function read mode and execess the file's data
+#the above code is used for reading the file
+#a.close() use for closing the file
+#the above code is used for closing the file
+#now we use write mode
+#a = open('100dayschellenge/projects/file.txt', 'w')
+#a.write("hello")
+
+#the above code is used for writing the file
+#we remove the prebiouse text and write the new text here it's hello
+a = open('100dayschellenge/projects/filehandling/file.txt', 'a')
+a.write("hello\n")
+a.close()#close is must
+#if we use write and file is not exist it will creat file with that name
+#append also able to write the file and craet new file it not exist
+a = open('100dayschellenge/projects/filehandling/file1.txt', 'w')#here file1.txt not exist but i creat new file and add hello
+a.write("hello\n")
+a.close()
+#the above code is used for creating the file
+#the new way to doing same thing is by with
+with open('100dayschellenge/projects/filehandling/file2.txt', 'w') as file:
+  file.write("hello hiie\n")
+with open('100dayschellenge/projects/filehandling/file2.txt', 'r') as file:
+  print(file.read())
+#the above code is used for reading the file
+with open('100dayschellenge/projects/filehandling/file2.txt', 'a') as file:
+  file.write("hello hiie\n")
+#how to use line by line
+with open('100dayschellenge/projects/filehandling/file2.txt', 'r') as file:
+  for line in file:
+    print(line)
+  else:
+    print("it's not line")
+#the above code is used for reading the file line by line
+#the else is used for checking the end of the file
+with open('100dayschellenge/projects/filehandling/MAKSEXAMPLE.TXT', 'r') as file:
+  for line in file:
+    print(line)
+    b = line.split(", ")
+    #print(line.split())
+    print(f"in physics out of 100 students gets {b[0]}")
+    print(f"in maths out of 100 students gets {b[1]}")
+    print(f"in chemistry out of 100 students gets {b[2]}")
+    
+  
+  else:
+    print("it's not line")
+  #the above code is used for reading the file line by line and spliting the data
+
+
+
+from concurrent.futures import thread
+
+
+with open('100dayschellenge/projects/filehandling/MAKSEXAMPLE2.TXT', 'w') as file1:
+  with open('100dayschellenge/projects/filehandling/MAKSEXAMPLE.TXT', 'r') as file2:
+    for line in file2:
+      b = line.split(", ")
+      file1.write(f"in physics out of 100 students gets {b[0]}\n")
+      file1.write(f"in maths out of 100 students gets {b[1]}\n") 
+      file1.write(f"in chemistry out of 100 students gets {b[2]}\n")
+    else:
+      print("it's not line")
+#the above code is used for reading the file line by line and spliting the data and writing the data in new file`
+# what is seek in file handling in the python
+# this just redifine the current ppositon in the file agar seek(10)`then countinbg start from 10
+with open('100dayschellenge/projects/filehandling/MAKSEXAMPLE2.TXT', 'r') as file1:
+  file1.seek(10)
+  print(file1.read())
+  #the above code is used for reading file but start from 10th charecter of the file
+#the above code is used for reading file but start from 10th charecter of the file
+with open('100dayschellenge/projects/filehandling/MAKSEXAMPLE2.TXT', 'r') as file1:
+  file1.seek(10)
+  print(file1.read(20))
+  #the above code is used for reading file but start from 10th charecter of the file and read 20 charecter
+#what is trucute in file handling in the python
+#this is used for trucating the file
+with open('100dayschellenge/projects/filehandling/MAKSEXAMPLE2.TXT', 'r+') as file1:
+  #file1.truncate(10)
+  print(file1.read())
+  #the above code is used for reading file and removing other charecter. only containig 10 charecter in file
+#what is tell in file handling in the python
+#this is used for telling the current position in the file
+with open('100dayschellenge/projects/filehandling/MAKSEXAMPLE2.TXT', 'r+') as file1:
+  file1.seek(10)
+  print(file1.tell())
+  #the above code is used for reading file and tell the current position in the file
+#what is mode in file handling in the python
+#this is used for telling the mode in which file is open
+with open('100dayschellenge/projects/filehandling/MAKSEXAMPLE2.TXT', 'r+') as file1:
+  print(file1.mode)
+  #the above code is used for reading file and tell the mode in which file is open
+#the mode is r+ is used for reading and writing
+#what is buffering in file handling in the python
+#this is used for telling the buffering in which file is open
+with open('100dayschellenge/projects/filehandling/MAKSEXAMPLE2.TXT', 'r+') as file1:
+  print(file1.buffer)
+  #the above code is used for reading file and tell the buffering in which file is open
+#what is the lamda function
+#lamda function is used for creating function in one line
+squere = lambda x: x*x
+print(squere(2))
+#the above code is used for creating function in one line
+factorial = lambda x: 1 if x == 0 else x * factorial(x-1)
+print(factorial(5))
+three = lambda x,y,z: (x+y+z)/5
+print(three(10,20,30))
+n_num_avg = lambda *x: sum(x)/len(x)
+print(n_num_avg(10,20,30,40,50))
+#we may pass function as a parameter to another function
+def add(fx, y):
+  return fx(y) + 8
+print(add(factorial, 5))
+#the above code is used for passing function as a parameter to another function and adding 8 to it
+#what is map fillter and reduce function
+#map function is used for applying function to all the element of the list
+
+my_list = [1,2,3,4,5]
+print(list(map(squere, my_list)))
+#basicaly it take each valueof list and pass it in the funtion and then append it to new list at the end give new list
+#the above code is used for applying function to all the element of the list
+#reduce function is used for applying function to all the element of the list
+from functools import reduce
+print(reduce(lambda x, y: x + y, [1,2,3,4,5]))
+#the above code is used for applying function to all the element of the list
+#it take 2 1st two values and then pass to funtion the output is now the fist value and then 1st and second pass to funtion and so on
+#at the end give the all values output
+#what is fillter function
+#fillter function is used for applying function to all the element of the list and then filter the value
+#basicaly it take each valueof list and pass it in the funtion and then append it to new list at the end give new list
+def my_func(x):
+  return x%2 == 0
+print(list(filter(my_func, my_list)))#it give the number which are even
+#what is diffrent between is and == 
+#both are compare the two objects
+#== compare the value
+# is campare the location in objects identity compare
+a = 5
+b = 5
+print(a is b)
+#if object is immutable then it will give true because python use same memeory and refure three from both side
+#so it's value and location both are same
+#if object is mutable then it will give false because python use different memeory and refure three from both side
+#for example list
+a = [1, 2, 3]
+b = [1, 2, 3]
+print(a is b)#false as two diffrent location used as it is immutable
+
+print(a == b)#true as both values is same
+#what is object orianted programing(oop)
+#it just store the variable and able to give diffrent value
+#like railway form wher the formate is fix everyone have diffrent details
+#below we just add some deteils but we may change them for diffrent cases
+class employ:
+  name = "mani"
+  occ = "SDE1"
+  salary =  150000
+#by a = employ() we says that all the funtions of the class employ are used by a
+#by a.something we call the variables of the a
+a = employ()
+print(a.name, a.occ, a.salary)
+class employ:
+  name = "mani"
+  occ = "SDE1"
+  salary =  150000
+  def info(self):
+    print(f"This is {self.name} there salary is {self.salary} There role is {self.occ} ")
+#above info is funtion which 
+#it's just like sabki infoprmation ek formate me store kare sakte hai
+#like a.employ() mean a ke information b.employ() is all information of b
+
+a = employ()
+print(a.info())
+b = employ()
+b.name = "mudit"
+b.occ = "manager"
+b.salary = "200000"
+print(b.info())#self mean jiske liye ye call horaha hai
+c = employ() 
+print(c.info())
+#the above is the sytntext to use
+#if we don't use defule value then we need to use cons
+
+class mani :
+  name = " hsk"
+  occ = "SDK@"
+  salary = "28883"
+  print(f"this is {name} there role is {occ} there pay is {salary}")
+e = mani()
+e.name = "kuntramal"
+e.occ = "SDF"
+e.salary = 3289649
+#we have to use new funtion because it only runs one
+#so we need function which run after editing value.
+#that reson we define info
+
+class Person:
+  def __init__(self, n, o, s):
+    print('hii')
+    self.name = n
+    self.occ = o
+    self.salary = s
+    #print(f"This is {self.name} there salary is {self.salary} There role is {self.occ} ")
+  def info(self):
+     print(f"This is {self.name} there salary is {self.salary} There role is {self.occ} ")
+print(Person("mani", "SDE1", 50000))
+a = Person("manij", "SDE1", 50000)
+b = Person("gorakkh", "Maneger", 150000)
+a.info()
+b.info()
+#so above we don't define amything with defult value so we used functions
+#What is decoraters in python
+#it's just decorate the funtion add somrthing at begening and at the end
+
+def greeting(fx):
+    def mfx():
+        print("hii thanks for calling me")
+        fx()
+        print("thanks")
+    return mfx
+
+
+@greeting#its call by this
+def hello():
+  
+  print("you are in hello")
+hello()
+greeting(hello())#this is also do same thing its like funtion in funtion
+
+def greeting1(fx):
+  def mxf(*args, **kwargs):
+    print("this is first part")
+    fx(*args, **kwargs)
+    print("you are gong to deport") 
+  return mxf
+@greeting1
+def add(a, b):
+  print(a + b)
+
+
+add(2, 23254)  
+#what is geeter seeter and deleter
+
+class MyClass:
+  def __init__(self, value):
+      self._value = value
+      print("this is init")
+    
+  def show(self):
+    print(f"Value is {self._value}")
+    print("this is in show")
+    
+  @property
+  def ten_value(self):
+      print(f"THIS IS ten_value, {self._value}")
+      return 10 * self._value
+      
+  @ten_value.setter
+  def ten_value(self, new_value):
+      self._value = new_value / 10
+      print("ten_value1")
+
+#obj = MyClass(10)
+#obj.ten_value = 67
+#print(obj.ten_value)
+#obj._value = 8
+#obj.show()
+#like jaise ham kisi ko acces nahi dena chate hai direct so we use _varialbe;le
+#for the seek of convinenes we judt use geeter and seeter to edite the value and set it
+#seeter use to take value
+#geeter used to change the value
+#we may do this thing without geeter and set but it's good practice
+ #Inheritage baap  beta. beta bana ne ko in heritage bolte hai.
+ #whereson has all charecters of father and some new which is there own
+class mani12(MyClass):
+  def __init__(self, programing):
+    self._programing = programing
+  def show1(self):
+    print(f"Value is programing is {self._programing}")
+
+a = mani12("Python")
+a.show1()
+a.ten_value = 33
+print(a.ten_value)
+a.show()
+b = mani12("C++")
+b.show1()
+b._value = 80
+b.show()
+#inheritage me direct variable ko call nahi kar sakte hai iskeliye alag alag hi call kaena padta hai
+#in python there is no any thing called privet and protected bas itna hai ki __ variable name dene par
+#isko pura naming convention badal jaiga ga like valur to a._class__value
+#this is to excees private variable
+class mani325():
+  def __init__(self):
+    self.__programing = "programing"
+  def show1(self):
+    print(f"Value is programing is {self.__programing}")
+m = mani325()
+#m.__programing = "C++"#it doesn't change programing
+m._mani325__programing = "Python"#but it change it to Python
+m.show1()
+#static methods
+#jinko self ki jarurat nahi padti jisko class ke bhar bhi use kar sakte hai
+class static:
+    @staticmethod
+    def mull(a, b):
+        print(a * b)
+
+print(static.mull(15, 25))#by this way also accesable
+a = static()#this is also valid way to exise 
+a.mull(25, 45)
+
+
+'''
+#instance vs class variable
+class mania():
+  
+  def __init__(self, prog) :
+     self.programe = prog
+  def add(a, b):
+    print(a + b)
+c = mania("python")
+#c.add(12, 18)# it give error TypeError: mania.__init__() missing 1 required positional argument: 'prog'
+#why because this code is same as mania.add(c)
+#so here clearly c is one variable and we also give two othere so this is the reson
+#let if we just add three variable in funtion
+class mania():
+  
+  def __init__(self, prog) :
+     self.programe = prog
+  def add(a, b, c):
+    print(c + b)
+    
+c = mania("python")#above we just leave a as a take c
+#we may define it as self so if we make changes in c then it may change by self
+c.add(243, 3487)
+#as we can't use anything from class so no need of self
+c.add
