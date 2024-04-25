@@ -1237,4 +1237,4 @@ c = mania("python")#above we just leave a as a take c
 c.add(243, 3487)
 #as we can't use anything from class so no need of self
 c.add
-jkgs
+
