@@ -1288,7 +1288,6 @@ b.show()
 mania.changecompany("amazon")
 b.show()
 a.show()
-'''
 #string slicing in class for make complex data simple
 #like we have given name and all like mani-120000-SDE!
 #then we can't able to use it directly and if we split it
@@ -1316,4 +1315,184 @@ b.show()
 mania.changecompany("amazon")
 b.show()
 a.show()
+#dir(), __dict__ and help() usage
+print(dir(b))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+#it just print all methods of the class or funtion
+print(dir(str))
+print(b.__dict__)
+#it just give al variable with there value from class
+print(help(b))
+#it give detail description of the class
+#what is supeer method
+class parenst():
+  def __init__(self, name, salary):
+    self.name = name
+    self.sal = salary
+  def show(self):
+    print(f"name is {self.name} and salary is {self.sal}")
+class son(parenst):
+  def __init__(self, name, salary, lang, exp):
+    super().__init__(name, salary)
+    self.languge = lang
+    self.exp = exp
+  def show(self):
+    print(f"name is {self.name} and salary is {self.sal} and experiance is {self.exp} and languge is {self.languge}")
+m = son("mani", "100000", "python", "5 year")
+m.show()
+#the above code just helpfull for don't repeat the code every time
+#what are the magic method
+class parenst():
+  def __init__(self, name, salary):
+    self.name = name
+    self.sal = salary
+  
+  def show(self):
+    print(f"name is {self.name} and salary is {self.sal}")
+    
+  def __str__(self):
+    return f"name is {self.name} and salary is {self.sal}"
+    
+  def __repr__(self):
+    return f"parenst(name={self.name}, salary={self.sal})"
+    
+  def __len__(self):
+    return len(self.name)
+    
+  def __add__(self, other):
+    return self.name + other
+    
+  def __eq__(self, other):
+    return self.name == other.name and self.sal == other.sal
+    
+  def __call__(self):
+    print("hii call called")
+a = parenst("mani", 100000)
+print(a) #it just print the callable and run the funtion __str__
+print(repr(a))#Provide string representations for objects
+#__add__ method in Python defines how will be the objects of a class added together. It is also known as overloaded addition operator.
 
+#Now add __add__ method to String class
+
+print(a + "mani")#it just add something to value of predefine 
+a()
+print(a.name == "mani")  # campare the value of variable
+# method overloading
+# like using parents method with some extra modifications
+
+
+class parenst:
+    def __init__(self, name, salary):
+        self.name = name
+        self.sal = salary
+
+    def show(self):
+        print(f"name is {self.name} and salary is {self.sal}")
+    def salal(self):
+      return int(10000)
+class son(parenst):
+    def __init__(self, name, salary, lang, exp):
+        super().__init__(name, salary)
+        self.languge = lang
+        self.exp = exp
+
+    def show(self):
+        print(f"name is {self.name} and salary is {self.sal} and experiance is {self.exp} and languge is {self.languge}")
+
+    def salaryplus(self, add):
+        return add + super().salal()
+
+m = son("mani", "100000", "python", "5 year")
+m.show()
+print(m.salaryplus(10000))
+#the above is used for addind or doing something extra with perents method
+#opperator overloading
+#__add__  __subreact__ etc
+class parenst():
+  def __init__(self, name, salary):
+    self.name = name
+    self.sal = salary
+  
+  def show(self):
+    print(f"name is {self.name} and salary is {self.sal}")
+    
+  def __str__(self):
+    return f"name is {self.name} and salary is {self.sal}"
+    
+  def __repr__(self):
+    return f"parenst(name={self.name}, salary={self.sal})"
+    
+  def __len__(self):
+    return len(self.name)  
+  def __add__(self, other):
+    return self.sal  + other
+  def __sub__(self, other):
+    return self.sal - other
+  def __mul__(self, other):
+    return self.sal * other
+  def __truediv__(self, other):
+    return self.sal / other
+  
+a = parenst("mani", 10000)
+print(a - 100)
+print(a + 1000)  
+print(a * 2)
+print(a / 10)
+'''
+#multiple inheritage
+class Employee:
+  def __init__(self, name):
+    self.name = name
+  def show(self):
+    print(f"The name is {self.name}")
+
+class Dancer:
+  def __init__(self, dance):
+    self.dance = dance
+
+  def show(self):
+    print(f"The dance is {self.dance}")
+
+class DancerEmployee(Employee, Dancer):
+  def __init__(self, dance, name):
+    self.dance = dance
+    self.name = name
+
+o  = DancerEmployee("Kathak", "Shivani")
+print(o.name)
+print(o.dance)
+o.show() 
+print(DancerEmployee.mro())#this is used to decide priority order if funtion with same name present
+#fist come fist serve
+#multilevvel inheritAGE 
+class Animal:
+    def __init__(self, name, species):
+        self.name = name
+        self.species = species
+        
+    def show_details(self):
+        print(f"Name: {self.name}")
+        print(f"Species: {self.species}")
+        
+class Dog(Animal):
+    def __init__(self, name, breed):
+        Animal.__init__(self, name, species="Dog")
+        self.breed = breed
+        
+    def show_details(self):
+        Animal.show_details(self)
+        print(f"Breed: {self.breed}")
+        
+class GoldenRetriever(Dog):
+    def __init__(self, name, color):
+        Dog.__init__(self, name, breed="Golden Retriever")
+        self.color = color
+        
+    def show_details(self):
+        Dog.show_details(self)
+        print(f"Color: {self.color}")
+
+o = Dog("tommy", "Black")
+o.show_details()
+print(GoldenRetriever.mro())
+
+#mullti levell inheritage
