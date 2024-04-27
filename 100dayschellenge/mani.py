@@ -1437,7 +1437,6 @@ print(a - 100)
 print(a + 1000)  
 print(a * 2)
 print(a / 10)
-'''
 #multiple inheritage
 class Employee:
   def __init__(self, name):
@@ -1495,4 +1494,101 @@ o = Dog("tommy", "Black")
 o.show_details()
 print(GoldenRetriever.mro())
 
-#mullti levell inheritage
+#mullti levell inheritage above
+#Hybrid class
+# Example of a hybrid class
+class parent():
+  pass
+class ParentClass1(parent):
+  pass
+class ParentClass2(parent):
+  pass
+
+class HybridClass(ParentClass1, ParentClass2):
+    def __init__(self):
+        ParentClass1.__init__(self)
+        ParentClass2.__init__(self)
+
+    def hybrid_method(self):
+        print("This is a hybrid method")
+#above is example of hybrid class
+#Higherical class
+class ceo():
+  pass
+class man1(ceo):
+  pass
+class man2(ceo):
+  pass
+class man3(ceo):
+  pass
+class em1(man1):
+  pass
+class em2(man1):
+  pass
+class em3(man1):
+  pass
+class em4(man1):
+  pass
+class em5(man1):
+  pass
+class em1(man2):
+  pass
+#time modul
+import time
+def for01():
+  for i in range(1, 1000):
+    #print(i)
+    continue
+def while01():
+  i = 0
+  while i < 1000:
+    #print(i)
+    i = i + 1
+seconds = time.time()
+for01()
+print(time.time() - seconds)
+sec = time.time()
+while01()
+print(time.time() - sec)
+#to find the time how much time an funtion take to perform task
+import time
+#sleep in time
+print("zero second")
+time.sleep(3)#it just wait for 3 sec befor excicuting below code
+print("it's after 3 sec")
+print(str(time.localtime()))
+print(str(time.gmtime()))#it for UTC
+t = (2024, 4, 27, 15, 20, 26, 4, 118, 0)
+
+result = time.asctime(t)
+print("Result:", result)#it's just like tuple number to year date and time etc
+#In Python, the asctime() function takes struct_time as an argument and returns a string representing it.
+#Similar to mktime(), the time_tuple has the following structure:
+
+#(year, month, day, hour, minute, second, weekday, day of the year, daylight saving)
+
+import argparse
+parser = argparse.ArgumentParser(description ='Process some integers.')
+parser.add_argument('integers', metavar ='N', 
+					type = int, nargs ='+',
+					help ='an integer for the accumulator')
+
+parser.add_argument(dest ='accumulate', 
+					action ='store_const',
+					const = sum, 
+					help ='sum the integers')
+
+args = parser.parse_args()
+print(args.accumulate(args.integers))
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("echo")
+args = parser.parse_args()
+print(args.echo)
+'''
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("square", help="display a square of a given number",
+                    type=int)
+args = parser.parse_args()
+print(args.square**2)
