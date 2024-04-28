@@ -1585,10 +1585,118 @@ parser = argparse.ArgumentParser()
 parser.add_argument("echo")
 args = parser.parse_args()
 print(args.echo)
-'''
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("square", help="display a square of a given number",
                     type=int)
 args = parser.parse_args()
 print(args.square**2)
+import argparse
+
+parser = argparse.ArgumentParser(description='Process some integers.')
+parser.add_argument('integers', metavar='N', type=int, nargs='+',
+                    help='an integer for the accumulator')
+parser.add_argument('--sum', dest='accumulate', action='store_const',
+                    const=sum, default=max,
+                    help='sum the integers (default: find the max)')
+
+args = parser.parse_args()
+print(args.accumulate(args.integers))
+import argparse
+# Create an ArgumentParser object
+parser = argparse.ArgumentParser(description='A simple script to greet users')
+
+# Add a positional argument
+parser.add_argument('name', help='Name of the user', nargs='+')#here name is the argument first thing is argument
+#we dont need to specify anythingf at the end just enter the value in this case
+
+# Parse the command-line arguments
+parser.add_argument('--sum', help='sum the integers (default: find the max)', nargs='+')
+args = parser.parse_args()#we say that evry thing done now arrange it by your self
+
+# Access the value of the positional argument
+if args.name:
+  print(f"Hello, {args.name}!")
+if args.sum:  
+  a = 0
+  for i in args.sum:
+    a += int(i)
+  print(a)
+
+#area of squre in terminal
+import argparse
+from re import X
+
+i = 0
+while True:
+  if i == 0:
+    print("""
+        1st Choose what you want area or Circumference
+        2nd Enter the radius of the circle
+        1 for area 
+        2 for circumference  
+        Example for Area:- x.py --area 5
+        here radius is 5
+        """)
+    parser = argparse.ArgumentParser(description='this is just to find the area of circle')
+    parser.add_argument('--area', type=float, help='radius')  
+    parser.add_argument('--circ', type=float, help='radius')
+    args = parser.parse_args()
+    if args.area:
+        print(3.14 * args.area**2)
+    if args.circ:
+        print(2 * 3.14 * args.circ)
+    man = input("Do you want to continue ? prees ente")
+    
+    if man == "":
+      pass
+    else:
+      break
+  else:
+    a = int(input("Enter the radius"))
+    b = input("Enter 1 for area and 2 for Area")
+    
+    if b == "1":
+      print(3.14 * (a**2))
+    if b == "2":
+      print(2 * 3.14 * a)
+    man = input("Do you want to continue ? prees ente")
+    if man == "":
+      pass
+    else:
+      break
+  i += 1
+happy = False
+print(happy)
+
+print(happy := True)#it just help to redefine the variable
+   
+foods = list()
+while True:
+  food = input("What food do you like?: ")
+  if food == "quit":
+      break
+  foods.append(food)
+foods = list()
+while (food := input("What food do you like?: ")) != "quit":
+    foods.append(food)
+import Shutil
+shutil.copy("main.py", "main2.py")
+shutil.copytree(".tutorial", "mytutorial")
+shutil.move(".tutorial/file.file", "file.file")
+shutil.rmtree("mytutorial")
+'''
+#there is no remove or delet file
+#so use os
+#what is request module
+#it use for web scraping
+#bs4 is used for pretify the html
+import requests
+from bs4 import BeautifulSoup
+url = "https://www.codewithharry.com/blogpost/django-cheatsheet/"
+r = requests.get(url)
+#print(r.text)#it just give the code of web
+soup = BeautifulSoup(r.text, 'html.parser')
+print(soup.prettify())
+for heading in soup.find_all("h2"): #here we find h2 from the web
+  print(heading.text)
