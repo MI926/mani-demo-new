@@ -64,10 +64,55 @@ print(g)
 print(len(g))
 m = str(g) + "_____" + str(o)
 print(m)
-
+import qrcode
+ 
+ #Data to be encoded
+data = 'QR Code using make() function'
+ 
+# Encoding data using make() function
+img = qrcode.make(m) 
+ 
+ #Saving as an image file
+img.save('MyQRCode1.png')
 
 # The variables a and v are not the same because:
 # - a is the original input string 
 # - v is the decoded output string after encrypting and decrypting a
 # So v should match the original a, but they are not exactly the same variable.
 
+import io
+from PIL import Image
+import base64
+
+# Open image using the pillow package
+img = Image.open("MyQRCode1.png")
+
+# Convert image to bytes
+img_byte_arr = io.BytesIO()
+img.save(img_byte_arr, format='PNG')
+img_byte_arr = img_byte_arr.getvalue()
+
+# Encode image bytes to base64 
+img_base64 = base64.b64encode(img_byte_arr)
+
+# Save base64 encoded image
+with open('100dayschellenge/wp5457083-780130089.jpg', 'wb') as f:
+    f.write(img_base64) 
+
+# Decode base64 encoded image back to bytes
+with open('100dayschellenge/wp5457083-780130089.jpg', 'rb') as f:
+    img_data = base64.b64decode(f.read())
+
+# Convert decoded bytes back to image  
+img = Image.open(io.BytesIO(img_data))
+
+# Save decoded image 
+img.save('decoded_image.png')
+
+
+
+
+import numpy as np
+from pyzbar.pyzbar import decode
+e = decode(Image.open("decoded_image.png"))
+print(e[0].data.decode())

@@ -1,4 +1,25 @@
-m = input("enter the code")
+# Decode base64 encoded image back to bytes
+import base64
+import io
+from PIL import Image
+with open('100dayschellenge/wp5457083-780130089.jpg', 'rb') as f:
+    img_data = base64.b64decode(f.read())
+
+# Convert decoded bytes back to image  
+img = Image.open(io.BytesIO(img_data))
+
+# Save decoded image 
+img.save('decoded_image.png')
+
+
+
+
+import numpy as np
+from pyzbar.pyzbar import decode
+e = decode(Image.open("decoded_image.png"))
+print(e[0].data.decode())
+
+m = e[0].data.decode()
 b = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
      "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
      "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", 
