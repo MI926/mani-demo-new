@@ -100,19 +100,6 @@ with open('100dayschellenge/wp5457083-780130089.jpg', 'wb') as f:
     f.write(img_base64) 
 
 # Decode base64 encoded image back to bytes
-with open('100dayschellenge/wp5457083-780130089.jpg', 'rb') as f:
-    img_data = base64.b64decode(f.read())
-
-# Convert decoded bytes back to image  
-img = Image.open(io.BytesIO(img_data))
-
-# Save decoded image 
-img.save('decoded_image.png')
 
 
 
-
-import numpy as np
-from pyzbar.pyzbar import decode
-e = decode(Image.open("decoded_image.png"))
-print(e[0].data.decode())
