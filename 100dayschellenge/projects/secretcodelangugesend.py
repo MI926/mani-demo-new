@@ -65,13 +65,13 @@ print(len(g))
 m = str(g) + "_____" + str(o)
 print(m)
 import qrcode
- 
+
  #Data to be encoded
 data = 'QR Code using make() function'
- 
+
 # Encoding data using make() function
 img = qrcode.make(m) 
- 
+
  #Saving as an image file
 img.save('MyQRCode1.png')
 
@@ -96,10 +96,8 @@ img_byte_arr = img_byte_arr.getvalue()
 img_base64 = base64.b64encode(img_byte_arr)
 
 # Save base64 encoded image
-with open('100dayschellenge/wp5457083-780130089.jpg', 'wb') as f:
+with open('jpg_44-2.jpg', 'ab') as f:
     f.write(img_base64) 
 
 # Decode base64 encoded image back to bytes
-
-
 
